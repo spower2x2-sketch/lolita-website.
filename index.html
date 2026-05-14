@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lolita Luxury Makeup Artist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#090308;
+
+font-family:'Poppins',sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.blur1{
+
+position:fixed;
+
+width:600px;
+height:600px;
+
+background:#ff4d8d;
+
+top:-200px;
+right:-200px;
+
+border-radius:50%;
+
+filter:blur(200px);
+
+opacity:.15;
+
+z-index:-1;
+}
+
+.blur2{
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#ffc1d6;
+
+bottom:-200px;
+left:-200px;
+
+border-radius:50%;
+
+filter:blur(200px);
+
+opacity:.08;
+
+z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:25px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.03);
+
+backdrop-filter:blur(15px);
+
+z-index:999;
+}
+
+.logo{
+
+font-size:42px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-weight:700;
+}
+
+nav ul{
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+transition:.4s;
+}
+
+nav a:hover{
+
+color:#ffbdd5;
+}
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+
+padding:140px 8% 80px;
+}
+
+.hero-content{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+}
+
+.hero-image img{
+
+width:100%;
+
+height:800px;
+
+object-fit:cover;
+
+border-radius:35px;
+
+filter:grayscale(100%);
+
+box-shadow:
+0 0 60px rgba(255,77,141,.15);
+
+animation:float 6s ease-in-out infinite;
+}
+
+.hero-text h1{
+
+font-size:140px;
+
+line-height:.85;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:20px;
+
+background:linear-gradient(to right,#fff,#ffbdd5,#fff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+}
+
+.quote{
+
+font-size:24px;
+
+font-style:italic;
+
+color:#ffbdd5;
+
+margin-bottom:30px;
+}
+
+.hero-text p{
+
+line-height:2;
+
+opacity:.8;
+
+margin-bottom:35px;
+}
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+}
+
+.btn{
+
+padding:18px 38px;
+
+border-radius:60px;
+
+text-decoration:none;
+
+transition:.4s;
+}
+
+.primary{
+
+background:linear-gradient(90deg,#ff4d8d,#ff7fb0);
+
+color:white;
+}
+
+.secondary{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+}
+
+/* TITLES */
+
+.section-title{
+
+font-size:70px;
+
+font-family:'Cormorant Garamond',serif;
+
+text-align:center;
+
+margin-bottom:20px;
+}
+
+.section-sub{
+
+text-align:center;
+
+opacity:.7;
+
+max-width:700px;
+
+margin:auto auto 70px;
+
+line-height:2;
+}
+
+/* ABOUT */
+
+section{
+
+padding:120px 8%;
+}
+
+.about-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+padding:45px 30px;
+
+border-radius:30px;
+
+border:1px solid rgba(255,255,255,.06);
+
+transition:.4s;
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 0 50px rgba(255,77,141,.15);
+}
+
+.card h3{
+
+font-size:35px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:15px;
+}
+
+/* SERVICES */
+
+.services-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+}
+
+.service{
+
+background:rgba(255,255,255,.05);
+
+padding:50px 30px;
+
+border-radius:35px;
+
+text-align:center;
+
+position:relative;
+
+transition:.4s;
+}
+
+.service:hover{
+
+transform:translateY(-12px);
+}
+
+.discount{
+
+position:absolute;
+
+top:15px;
+right:15px;
+
+background:#ff4d8d;
+
+padding:8px 14px;
+
+border-radius:30px;
+
+font-size:12px;
+}
+
+.service h3{
+
+font-size:38px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:10px;
+}
+
+.old{
+
+text-decoration:line-through;
+
+opacity:.4;
+
+margin-bottom:10px;
+}
+
+.price{
+
+font-size:32px;
+
+color:#ffbdd5;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+
+columns:3 250px;
+
+gap:18px;
+}
+
+.gallery-grid img{
+
+width:100%;
+
+margin-bottom:18px;
+
+border-radius:25px;
+
+transition:.4s;
+}
+
+.gallery-grid img:hover{
+
+transform:scale(1.03);
+
+box-shadow:
+0 0 50px rgba(255,77,141,.15);
+}
+
+/* CONTACT */
+
+.contact-box{
+
+max-width:900px;
+
+margin:auto;
+
+background:rgba(255,255,255,.05);
+
+padding:70px 40px;
+
+border-radius:35px;
+
+text-align:center;
+}
+
+.contact-box h2{
+
+font-size:70px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:20px;
+}
+
+.contact-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin-top:30px;
+}
+
+.contact-links a{
+
+padding:18px 35px;
+
+border-radius:60px;
+
+background:linear-gradient(90deg,#ff4d8d,#ff7fb0);
+
+text-decoration:none;
+
+color:white;
+}
+
+/* FOOTER */
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+opacity:.4;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+
+position:fixed;
+
+bottom:25px;
+right:25px;
+
+width:70px;
+height:70px;
+
+background:#25d366;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+color:white;
+
+z-index:9999;
+
+box-shadow:
+0 0 40px rgba(37,211,102,.4);
+}
+
+/* ANIMATION */
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+.hero-content{
+
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+
+font-size:80px;
+}
+
+.hero-image img{
+
+height:550px;
+}
+
+}
+
+@media(max-width:768px){
+
+nav ul{
+display:none;
+}
+
+.section-title{
+font-size:50px;
+}
+
+.contact-box h2{
+font-size:45px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="blur1"></div>
+<div class="blur2"></div>
+
+<nav>
+
+<div class="logo">
+lolita
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-image">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7660_jb1np9">
+
+</div>
+
+<div class="hero-text">
+
+<h1>Lolita</h1>
+
+<div class="quote">
+“Where Beauty Becomes Art.”
+</div>
+
+<p>
+
+Luxury Makeup Artist based in Cairo with 5 years of experience in beauty & skincare.
+Certified by Noor El Sabah Center and creator of more than 190 premium makeup looks.
+
+</p>
+
+<div class="buttons">
+
+<a href="https://wa.me/201505978924" class="btn primary">
+Book Now
+</a>
+
+<a href="https://www.instagram.com/loaamakeupartist" class="btn secondary">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Luxury Beauty Experience
+</h2>
+
+<p class="section-sub">
+
+Professional bridal and event makeup crafted with elegance and premium feminine aesthetics.
+
+</p>
+
+<div class="about-grid">
+
+<div class="card">
+<h3>5 Years Experience</h3>
+<p>Professional luxury makeup artistry & skincare experience.</p>
+</div>
+
+<div class="card">
+<h3>190+ Looks</h3>
+<p>More than 190 unique luxury makeup looks professionally created.</p>
+</div>
+
+<div class="card">
+<h3>Certified Artist</h3>
+<p>Certified by Noor El Sabah accredited beauty center.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Services & Pricing
+</h2>
+
+<div class="services-grid">
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Wedding</h3>
+
+<div class="old">
+20,000 EGP
+</div>
+
+<div class="price">
+15,000 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Engagement</h3>
+
+<div class="old">
+3,300 EGP
+</div>
+
+<div class="price">
+2,500 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>High Soiree</h3>
+
+<div class="old">
+2,000 EGP
+</div>
+
+<div class="price">
+1,500 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Soiree</h3>
+
+<div class="old">
+1,350 EGP
+</div>
+
+<div class="price">
+1,000 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Simple Look</h3>
+
+<div class="old">
+1,100 EGP
+</div>
+
+<div class="price">
+800 EGP
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Signature Looks
+</h2>
+
+<div class="gallery-grid">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7676_txcwbk">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7674_nxhqil">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7671_wramwt">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7672_nmvq2u">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7667_ndog1f">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7663_yuznfq">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7651_xiisnk">
+
+</div>
+
+</section>
+
+<section>
+
+<div class="contact-box">
+
+<h2>
+Book Your Luxury Look
+</h2>
+
+<p>
+
+Cairo, Egypt <br><br>
+
+WhatsApp & Calls: <br>
+
++20 150 597 8924
+
+</p>
+
+<div class="contact-links">
+
+<a href="https://wa.me/201505978924">
+WhatsApp
+</a>
+
+<a href="tel:+201505978924">
+Call Now
+</a>
+
+<a href="https://www.instagram.com/loaamakeupartist">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Lolita Makeup Artist — All Rights Reserved
+
+</footer>
+
+<a href="https://wa.me/201505978924" class="whatsapp">
+✦
+</a>
+
+<script>
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = 1;
+
+entry.target.style.transform =
+'translateY(0px)';
+
+}
+
+});
+
+});
+
+document.querySelectorAll('section,.card,.service,img')
+.forEach(el=>{
+
+el.style.opacity = 0;
+
+el.style.transform =
+'translateY(80px)';
+
+el.style.transition =
+'1s ease';
+
+observer.observe(el);
+
+});
+
+</script>
+
+</body>
+
+</html>
