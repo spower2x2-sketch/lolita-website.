@@ -1,3 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loaa Makeup Artist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:#090308;
+
+font-family:'Poppins',sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+.blur1{
+
+position:fixed;
+
+width:700px;
+height:700px;
+
+background:#ff4d8d;
+
+top:-250px;
+right:-250px;
+
+border-radius:50%;
+
+filter:blur(220px);
+
+opacity:.15;
+
+z-index:-2;
+}
+
+.blur2{
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#ffc1d6;
+
+bottom:-250px;
+left:-250px;
+
+border-radius:50%;
+
+filter:blur(220px);
+
+opacity:.08;
+
+z-index:-2;
+}
+
+/* LOADER */
+
+.loader{
+
+position:fixed;
+
+inset:0;
+
+background:#090308;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+
+animation:hideLoader 2s forwards;
+animation-delay:2s;
+}
+
+.loader h1{
+
+font-size:120px;
+
+font-family:'Cormorant Garamond',serif;
+
+letter-spacing:8px;
+
+animation:pulse 2s infinite;
+}
+
+@keyframes hideLoader{
+
+to{
+opacity:0;
+visibility:hidden;
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+opacity:.5;
+}
+
+50%{
+transform:scale(1.08);
+opacity:1;
+}
+
+100%{
+transform:scale(1);
+opacity:.5;
+}
+
+}
+
+/* PROGRESS BAR */
+
+.progress-bar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+height:4px;
+
+background:linear-gradient(
+90deg,
+#ff4d8d,
+#ffbdd5
+);
+
+width:0%;
+
+z-index:999999;
+}
+
+/* NAVBAR */
+
+nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:25px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.03);
+
+backdrop-filter:blur(15px);
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
+z-index:999;
+}
+
+.logo{
+
+font-size:38px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-weight:700;
+}
+
+nav ul{
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+transition:.4s;
+}
+
+nav a:hover{
+
+color:#ffbdd5;
+}
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+
+padding:150px 8% 80px;
+}
+
+.hero-content{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:80px;
+
+align-items:center;
+}
+
+.hero-image img{
+
+width:100%;
+
+height:820px;
+
+object-fit:cover;
+
+border-radius:40px;
+
+filter:grayscale(100%);
+
+box-shadow:
+0 0 80px rgba(255,77,141,.15);
+
+animation:float 6s ease-in-out infinite;
+}
+
+.hero-text h1{
+
+font-size:150px;
+
+line-height:.82;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:20px;
+
+background:linear-gradient(
+to right,
+#fff,
+#ffbdd5,
+#fff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.quote{
+
+font-size:24px;
+
+font-style:italic;
+
+margin-bottom:30px;
+
+color:#ffbdd5;
+}
+
+.hero-text p{
+
+line-height:2;
+
+opacity:.8;
+
+margin-bottom:35px;
+}
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+}
+
+.btn{
+
+padding:18px 38px;
+
+border-radius:60px;
+
+text-decoration:none;
+
+transition:.4s;
+}
+
+.primary{
+
+background:linear-gradient(
+90deg,
+#ff4d8d,
+#ff7fb0
+);
+
+color:white;
+
+box-shadow:
+0 0 40px rgba(255,77,141,.35);
+}
+
+.secondary{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+}
+
+.btn:hover{
+
+transform:
+translateY(-6px)
+scale(1.03);
+}
+
+/* SECTION TITLES */
+
+section{
+
+padding:120px 8%;
+}
+
+.section-title{
+
+font-size:75px;
+
+font-family:'Cormorant Garamond',serif;
+
+text-align:center;
+
+margin-bottom:20px;
+}
+
+.section-sub{
+
+text-align:center;
+
+opacity:.7;
+
+max-width:700px;
+
+margin:auto auto 70px;
+
+line-height:2;
+}
+
+/* ABOUT */
+
+.about-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+padding:45px 30px;
+
+border-radius:35px;
+
+border:1px solid rgba(255,255,255,.06);
+
+backdrop-filter:blur(14px);
+
+transition:.4s;
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 0 50px rgba(255,77,141,.15);
+}
+
+.card h3{
+
+font-size:38px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:15px;
+}
+
+/* SERVICES */
+
+.services-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+}
+
+.service{
+
+background:rgba(255,255,255,.05);
+
+padding:50px 30px;
+
+border-radius:35px;
+
+text-align:center;
+
+position:relative;
+
+transition:.4s;
+
+overflow:hidden;
+}
+
+.service:hover{
+
+transform:
+translateY(-12px)
+scale(1.02);
+
+box-shadow:
+0 0 60px rgba(255,77,141,.16);
+}
+
+.discount{
+
+position:absolute;
+
+top:15px;
+right:15px;
+
+padding:8px 14px;
+
+border-radius:30px;
+
+background:#ff4d8d;
+
+font-size:12px;
+}
+
+.service h3{
+
+font-size:40px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:10px;
+}
+
+.old{
+
+text-decoration:line-through;
+
+opacity:.4;
+
+margin-bottom:10px;
+}
+
+.price{
+
+font-size:32px;
+
+color:#ffbdd5;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+
+columns:3 250px;
+
+gap:18px;
+}
+
+.gallery-grid img{
+
+width:100%;
+
+margin-bottom:18px;
+
+border-radius:25px;
+
+transition:.5s;
+
+cursor:pointer;
+}
+
+.gallery-grid img:hover{
+
+transform:
+scale(1.03)
+translateY(-6px);
+
+box-shadow:
+0 0 50px rgba(255,77,141,.18);
+}
+
+/* BOOKING */
+
+.booking-box{
+
+max-width:900px;
+
+margin:auto;
+
+padding:60px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(16px);
+}
+
+.booking-box h2{
+
+font-size:70px;
+
+font-family:'Cormorant Garamond',serif;
+
+text-align:center;
+
+margin-bottom:30px;
+}
+
+.booking-form{
+
+display:grid;
+
+gap:20px;
+}
+
+.booking-form input,
+.booking-form textarea{
+
+width:100%;
+
+padding:20px;
+
+border:none;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.06);
+
+color:white;
+
+outline:none;
+}
+
+.booking-form button{
+
+padding:18px;
+
+border:none;
+
+border-radius:60px;
+
+background:linear-gradient(
+90deg,
+#ff4d8d,
+#ff7fb0
+);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.4s;
+}
+
+.booking-form button:hover{
+
+transform:translateY(-5px);
+}
+
+/* CONTACT */
+
+.contact-box{
+
+max-width:900px;
+
+margin:auto;
+
+padding:70px 40px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.05);
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,.06);
+}
+
+.contact-box h2{
+
+font-size:70px;
+
+font-family:'Cormorant Garamond',serif;
+
+margin-bottom:20px;
+}
+
+.contact-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin-top:30px;
+}
+
+.contact-links a{
+
+padding:18px 35px;
+
+border-radius:60px;
+
+background:linear-gradient(
+90deg,
+#ff4d8d,
+#ff7fb0
+);
+
+text-decoration:none;
+
+color:white;
+
+transition:.4s;
+}
+
+.contact-links a:hover{
+
+transform:
+translateY(-5px)
+scale(1.03);
+}
+
+/* FOOTER */
+
+footer{
+
+padding:35px;
+
+text-align:center;
+
+opacity:.4;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+
+position:fixed;
+
+bottom:25px;
+right:25px;
+
+width:75px;
+height:75px;
+
+background:#25d366;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:34px;
+
+text-decoration:none;
+
+color:white;
+
+z-index:99999;
+
+box-shadow:
+0 0 40px rgba(37,211,102,.4);
+
+animation:floatWhatsapp 3s ease infinite;
+}
+
+@keyframes floatWhatsapp{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* FLOAT IMAGE */
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+.hero-content{
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+font-size:90px;
+}
+
+.hero-image img{
+height:550px;
+}
+
+}
+
+@media(max-width:768px){
+
+nav ul{
+display:none;
+}
+
+.section-title{
+font-size:50px;
+}
+
+.booking-box h2,
+.contact-box h2{
+font-size:45px;
+}
+
+.hero-text h1{
+font-size:65px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="loader">
+<h1>LOAA</h1>
+</div>
+
+<div class="progress-bar"></div>
+
+<div class="blur1"></div>
+<div class="blur2"></div>
+
+<nav>
+
+<div class="logo">
+Loaa Makeup Artist
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Booking</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-image">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7660_jb1np9">
+
+</div>
+
+<div class="hero-text">
+
+<h1>Loaa</h1>
+
+<div class="quote">
+“Where Beauty Becomes Art.”
+</div>
+
+<p>
+
+Luxury Makeup Artist based in Cairo with 5 years of experience in beauty & skincare.
+Certified by Noor El Sabah Center and creator of more than 190 premium makeup looks.
+
+</p>
+
+<div class="buttons">
+
+<a href="https://wa.me/201505978924" class="btn primary">
+Book Now
+</a>
+
+<a href="https://www.instagram.com/loaamakeupartist" class="btn secondary">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Luxury Beauty Experience
+</h2>
+
+<p class="section-sub">
+
+Professional bridal and event makeup crafted with elegance and premium feminine aesthetics.
+
+</p>
+
+<div class="about-grid">
+
+<div class="card">
+
+<h3>5 Years Experience</h3>
+
+<p>
+Professional luxury makeup artistry & skincare experience.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>190+ Looks</h3>
+
+<p>
+More than 190 unique luxury makeup looks professionally created.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Certified Artist</h3>
+
+<p>
+Certified by Noor El Sabah accredited beauty center.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Services & Pricing
+</h2>
+
+<div class="services-grid">
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Wedding</h3>
+
+<div class="old">
+20,000 EGP
+</div>
+
+<div class="price">
+15,000 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Engagement</h3>
+
+<div class="old">
+3,300 EGP
+</div>
+
+<div class="price">
+2,500 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>High Soiree</h3>
+
+<div class="old">
+2,000 EGP
+</div>
+
+<div class="price">
+1,500 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Soiree</h3>
+
+<div class="old">
+1,350 EGP
+</div>
+
+<div class="price">
+1,000 EGP
+</div>
+
+</div>
+
+<div class="service">
+
+<div class="discount">
+25% OFF
+</div>
+
+<h3>Simple Look</h3>
+
+<div class="old">
+1,100 EGP
+</div>
+
+<div class="price">
+800 EGP
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Signature Looks
+</h2>
+
+<div class="gallery-grid">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7676_txcwbk">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7674_nxhqil">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7671_wramwt">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7672_nmvq2u">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7667_ndog1f">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7663_yuznfq">
+
+<img src="https://res.cloudinary.com/dmeueth2o/image/upload/f_auto,q_auto/IMG_7651_xiisnk">
+
+</div>
+
+</section>
+
+<section>
+
+<div class="booking-box">
+
+<h2>
+Book Your Session
+</h2>
+
+<form class="booking-form" id="bookingForm">
+
+<input type="text" id="name" placeholder="Your Name" required>
+
+<input type="date" id="date" required>
+
+<input type="text" id="service" placeholder="Service Type" required>
+
+<textarea id="notes" rows="5" placeholder="Additional Notes"></textarea>
+
+<button type="submit">
+Book Now
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="contact-box">
+
+<h2>
+Contact
+</h2>
+
+<p>
+
+Cairo, Egypt <br><br>
+
+WhatsApp & Calls: <br>
+
++20 150 597 8924
+
+</p>
+
+<div class="contact-links">
+
+<a href="https://wa.me/201505978924">
+WhatsApp
+</a>
+
+<a href="tel:+201505978924">
+Call Now
+</a>
+
+<a href="https://www.instagram.com/loaamakeupartist">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Loaa Makeup Artist — All Rights Reserved
+
+</footer>
+
+<a href="https://wa.me/201505978924" class="whatsapp">
+✦
+</a>
+
 <script>
 
 /* SCROLL REVEAL */
@@ -115,7 +1248,8 @@ height:300px;
 border-radius:50%;
 
 background:
-radial-gradient(circle,
+radial-gradient(
+circle,
 rgba(255,77,141,.14),
 transparent 70%
 );
@@ -141,3 +1275,6 @@ e.clientY + 'px'
 })
 
 </script>
+
+</body>
+</html>
